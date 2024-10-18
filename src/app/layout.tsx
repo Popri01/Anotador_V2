@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body className="container m-auto grid min-h-screen grid-rows-[auto,1fr,auto] bg-background px-4 font-sans antialiased">
-        <header className="text-xl font-bold leading-[4rem]">
+      <body className=" m-auto grid  font-sans antialiased">
+        <header className="text-xl font-bold ">
           <Link href="/">Anotador_V2</Link>
         </header>
         <main className="flex justify-center py-8">{children}</main>

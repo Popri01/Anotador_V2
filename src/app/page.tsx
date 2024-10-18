@@ -17,7 +17,10 @@ export default function HomePage() {
       const puntosEnCubo = Math.min(puntos - i * puntosPorCubo, puntosPorCubo); // Puntos en este cubo
 
       cubos.push(
-        <div key={i} className="relative m-2 h-16 w-16  border-[#26619C]">
+        <div
+          key={i}
+          className={`${i === 2 ? "m-2 mb-5" : "m-2"} relative  h-12 w-12 border-[#26619C] lg:h-16 lg:w-16`}
+        >
           {renderLineas(puntosEnCubo)}
         </div>,
       );
@@ -60,20 +63,10 @@ export default function HomePage() {
   };
 
   function setPuntos(Equipo: string, puntos: number) {
-    if (puntosNosotros === PuntosMaximos - 1) {
+    if (puntos === PuntosMaximos) {
       Swal.fire({
-        title: "Nosotros Ganamos!",
+        title: `Ganaron ${Equipo}!`,
 
-        icon: "success",
-        confirmButtonText: "Reiniciar",
-      });
-      setPuntosEllos(0);
-      setPuntosNosotros(0);
-
-      return;
-    } else if (puntosEllos === PuntosMaximos - 1) {
-      Swal.fire({
-        title: "Ellos Ganaron!",
         icon: "success",
         confirmButtonText: "Reiniciar",
       });
@@ -82,6 +75,7 @@ export default function HomePage() {
 
       return;
     }
+
     if (Equipo === "Nosotros") {
       setPuntosNosotros(puntos);
     } else {
@@ -90,22 +84,25 @@ export default function HomePage() {
   }
 
   return (
-    <div className="flex  w-[700px] items-center justify-center gap-20 bg-[url('/Fondo.jpg')] bg-cover bg-center font-nanum text-[#26619C]  ">
-      <div className="flex flex-col  items-center">
-        <h1 className=" text-3xl ">Nosotros</h1>
+    <div className="flex h-[670px] w-full items-center justify-center gap-4 bg-[url('/Fondo.jpg')] bg-cover bg-center font-nanum text-[#26619C] lg:h-[850px] lg:w-[800px] lg:gap-20">
+      <div className="flex flex-col items-center md:w-auto">
+        <h1 className="text-2xl md:text-3xl">Nosotros</h1>
 
-        <div className="flex h-[480px] flex-col ">{renderCuadrado(puntosNosotros)}</div>
-        <div className="mt-8 flex items-center space-x-4 ">
+        <div className="flex h-[400px] flex-col items-center md:h-[500px]">
+          {renderCuadrado(puntosNosotros)}
+        </div>
+
+        <div className="mt-4 flex items-center space-x-4 lg:mt-8">
           <button
-            className="flex h-12 w-12 items-center justify-center rounded-full  bg-[#26619C] px-4 py-2 text-4xl text-white"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#26619C] text-3xl text-white md:h-12 md:w-12 md:text-4xl"
             type="button"
             onClick={() => setPuntos("Nosotros", Math.min(puntosNosotros + 1, PuntosMaximos))}
           >
             +
           </button>
-          <div className="text-xl">{puntosNosotros}</div>
+          <div className="text-lg md:text-xl">{puntosNosotros}</div>
           <button
-            className="flex h-12 w-12 items-center justify-center rounded-full  bg-[#26619C] px-4 py-2 text-4xl text-white "
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#26619C] text-3xl text-white md:h-12 md:w-12 md:text-4xl"
             type="button"
             onClick={() => setPuntosNosotros(Math.max(puntosNosotros - 1, 0))}
           >
@@ -114,22 +111,26 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="h-[550px] w-1 rounded bg-[#26619C]" />
+      <div className="relative flex h-[480px] w-1 translate-y-[-10px] items-center justify-center rounded bg-[#26619C] md:h-[550px] md:translate-y-[-20px]">
+        <div className="h-[300px] w-1 rotate-90 rounded bg-[#26619C] md:h-[550px]" />
+      </div>
 
-      <div className="flex flex-col items-center ">
-        <h1 className=" text-3xl ">Ellos</h1>
-        <div className="flex h-[480px] flex-col">{renderCuadrado(puntosEllos)}</div>
-        <div className="mt-8 flex items-center  space-x-4 ">
+      <div className="flex flex-col items-center md:w-auto">
+        <h1 className="text-2xl md:text-3xl">Ellos</h1>
+
+        <div className="flex h-[400px] flex-col md:h-[500px]">{renderCuadrado(puntosEllos)}</div>
+
+        <div className="mt-4 flex items-center space-x-4 lg:mt-8">
           <button
-            className="flex h-12 w-12 items-center justify-center rounded-full bg-[#26619C] px-4 py-2 text-4xl text-white"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#26619C] text-3xl text-white md:h-12 md:w-12 md:text-4xl"
             type="button"
             onClick={() => setPuntos("Ellos", Math.min(puntosEllos + 1, PuntosMaximos))}
           >
             +
           </button>
-          <div className="text-xl">{puntosEllos}</div>
+          <div className="text-lg md:text-xl">{puntosEllos}</div>
           <button
-            className="flex h-12 w-12 items-center justify-center rounded-full bg-[#26619C] px-4 py-2 text-4xl text-white "
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#26619C] text-3xl text-white md:h-12 md:w-12 md:text-4xl"
             type="button"
             onClick={() => setPuntosEllos(Math.max(puntosEllos - 1, 0))}
           >
