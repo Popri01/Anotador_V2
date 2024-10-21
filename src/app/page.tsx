@@ -5,6 +5,8 @@ import {useState} from "react";
 export default function HomePage() {
   const [puntosNosotros, setPuntosNosotros] = useState(0);
   const [puntosEllos, setPuntosEllos] = useState(0);
+  const [partidasGanadasEllos, setPartidasGanadasEllos] = useState(0);
+  const [partidasGanadasNosotros, setPartidasGanadasNosotros] = useState(0);
 
   const PuntosMaximos = 30;
   const puntosPorCubo = 5; // Cada cubo puede tener hasta 5 puntos
@@ -73,6 +75,12 @@ export default function HomePage() {
       setPuntosEllos(0);
       setPuntosNosotros(0);
 
+      if (Equipo === "Nosotros") {
+        setPartidasGanadasNosotros((partidasGanadasNosotros) => partidasGanadasNosotros + 1);
+      } else {
+        setPartidasGanadasEllos((partidasGanadasEllos) => partidasGanadasEllos + 1);
+      }
+
       return;
     }
 
@@ -87,6 +95,7 @@ export default function HomePage() {
     <div className="flex h-[670px] w-full items-center justify-center  bg-[url('/Fondo.jpg')] bg-cover bg-center font-nanum text-[#26619C] lg:h-[850px] lg:w-[800px] lg:gap-8">
       <div className="flex flex-col items-center md:w-auto">
         <h1 className="text-2xl md:text-3xl">Nosotros</h1>
+        <p className="text-lg">Partidas ganadas:{partidasGanadasNosotros}</p>
 
         <div className="flex h-[400px] w-[150px] flex-col items-center md:h-[500px] md:w-[200px]">
           {renderCuadrado(puntosNosotros)}
@@ -111,12 +120,13 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="relative flex h-[480px] w-1 translate-y-[-10px] items-center justify-center rounded bg-[#26619C] md:h-[550px] md:translate-y-[-20px]">
+      <div className="relative flex h-[500px] w-1 translate-y-[-10px] items-center justify-center rounded bg-[#26619C] md:h-[550px] md:translate-y-[-20px]">
         <div className="h-[300px] w-1 rotate-90 rounded bg-[#26619C] md:h-[550px]" />
       </div>
 
       <div className="flex flex-col items-center md:w-auto">
         <h1 className="text-2xl md:text-3xl">Ellos</h1>
+        <p className="text-lg">Partidas ganadas:{partidasGanadasEllos}</p>
 
         <div className="flex h-[400px] w-[150px] flex-col items-center md:h-[500px] md:w-[200px]">
           {renderCuadrado(puntosEllos)}
