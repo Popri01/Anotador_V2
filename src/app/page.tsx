@@ -94,7 +94,7 @@ export default function HomePage() {
   return (
     <div className="flex h-[670px] w-full items-center justify-center  bg-[url('/Fondo.jpg')] bg-cover bg-center font-nanum text-[#26619C] lg:h-[850px] lg:w-[800px] lg:gap-8">
       <div className="flex flex-col items-center md:w-auto">
-        <h1 className="text-2xl md:text-3xl">Nosotros</h1>
+        <h2 className="text-2xl md:text-3xl">Nosotros</h2>
         <p className="text-lg">Partidas ganadas:{partidasGanadasNosotros}</p>
 
         <div className="flex h-[400px] w-[150px] flex-col items-center md:h-[500px] md:w-[200px]">
@@ -125,7 +125,7 @@ export default function HomePage() {
       </div>
 
       <div className="flex flex-col items-center md:w-auto">
-        <h1 className="text-2xl md:text-3xl">Ellos</h1>
+        <h2 className="text-2xl md:text-3xl">Ellos</h2>
         <p className="text-lg">Partidas ganadas:{partidasGanadasEllos}</p>
 
         <div className="flex h-[400px] w-[150px] flex-col items-center md:h-[500px] md:w-[200px]">
