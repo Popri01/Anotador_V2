@@ -12,10 +12,13 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-      <body className=" m-auto grid  font-sans antialiased">
-        <header className="text-xl font-bold " />
-        <main className="flex justify-center ">{children}</main>
-        <footer className="text-center opacity-70" />
+      <body className="bg-foreground text-background">
+        <div className="relative z-10 flex min-h-screen antialiased">
+          <div className="md:left-30 absolute left-2 -z-10 h-full w-[0.1rem] bg-red-500/60 sm:left-10 lg:left-40" />
+          <div className="absolute left-0 top-0 -z-20 h-full w-full bg-[linear-gradient(to_bottom,rgba(134,123,123,0.2)_1px,transparent_1px)] [background-size:100%_2rem] sm:[background-size:100%_2.7rem]" />
+          {/* le aplicamos un margin segun donde este la linea roja para no tocarla nunca con la grid*/}
+          <main className="md:ms-30 ms-2 w-full sm:ms-10 lg:ms-40">{children}</main>
+        </div>
       </body>
     </html>
   );
