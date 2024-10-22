@@ -13,13 +13,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <body className=" m-auto grid  font-sans antialiased">
-        <header className="text-xl font-bold ">
-          <Link href="/">Anotador_V2</Link>
-        </header>
-        <main className="flex justify-center py-8">{children}</main>
-        <footer className="text-center leading-[4rem] opacity-70">
-          © {new Date().getFullYear()} Anotador_V2
-        </footer>
+        <header className="text-xl font-bold " />
+        <main className="flex justify-center ">{children}</main>
+        <footer className="text-center opacity-70" />
       </body>
     </html>
   );

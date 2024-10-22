@@ -36,24 +36,44 @@ export default function HomePage() {
     const lados = [];
 
     if (puntosEnCubo >= 1) {
-      lados.push(<div key="top" className="absolute left-0 top-0 h-1 w-full bg-[#26619C]" />);
+      lados.push(
+        <div
+          key="top"
+          className="absolute left-0 top-0 h-2 w-full rotate-180 bg-[url('/linea.png')] bg-cover"
+        />,
+      );
     }
     if (puntosEnCubo >= 2) {
-      lados.push(<div key="right" className="absolute right-0 top-0 h-full w-1 bg-[#26619C]" />);
+      lados.push(
+        <div
+          key="right"
+          className="absolute right-0 top-0 h-full w-2 rotate-180 bg-[url('/linea2.png')] bg-cover"
+        />,
+      );
     }
     if (puntosEnCubo >= 3) {
-      lados.push(<div key="bottom" className="absolute bottom-0 left-0 h-1 w-full bg-[#26619C]" />);
+      lados.push(
+        <div
+          key="bottom"
+          className="absolute bottom-0 left-0 h-2 w-full bg-[url('/linea.png')]  bg-cover"
+        />,
+      );
     }
     if (puntosEnCubo >= 4) {
-      lados.push(<div key="left" className="absolute left-0 top-0 h-full w-1 bg-[#26619C]" />);
+      lados.push(
+        <div
+          key="left"
+          className="absolute left-0 top-0 h-full w-2 bg-[url('/linea2.png')] bg-cover"
+        />,
+      );
     }
     if (puntosEnCubo === 5) {
       lados.push(
         <div key="diagonal" className="absolute left-0 top-0 h-full w-full">
           <div
-            className="absolute h-[4px] w-full rounded bg-[#26619C]"
+            className="absolute h-[5px] w-full rounded bg-[url('/linea.png')] bg-cover"
             style={{
-              transform: "rotate(45deg)",
+              transform: "rotate(135deg)",
               top: "50%",
               left: "0",
             }}
@@ -93,7 +113,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="flex h-[670px] w-full items-center justify-center  bg-[url('/Fondo.jpg')] bg-cover bg-center font-nanum text-[#26619C] lg:h-[850px] lg:w-[800px] lg:gap-8">
+    <div className="flex h-[850px] w-full items-center justify-center  bg-[url('/Fondo.jpg')] bg-cover bg-center font-nanum text-[#26619C] lg:h-[850px] lg:w-[800px] lg:gap-8">
       <div className="flex flex-col items-center md:w-auto">
         <h2 className="text-2xl md:text-3xl">Nosotros</h2>
         <p className="text-lg">Partidas ganadas:{partidasGanadasNosotros}</p>
