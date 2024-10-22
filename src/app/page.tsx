@@ -21,7 +21,7 @@ export default function HomePage() {
       cubos.push(
         <div
           key={i}
-          className={`${i === 2 ? "m-2 mb-5" : "m-2"} relative  h-12 w-12 border-[#26619C] lg:h-16 lg:w-16`}
+          className={`${i === 2 ? "m-2 mb-2" : "m-2"} relative  h-12 w-12 border-[#26619C] lg:h-16 lg:w-16`}
         >
           {renderLineas(puntosEnCubo)}
         </div>,
