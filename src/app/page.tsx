@@ -1,6 +1,7 @@
 "use client";
 import Swal from "sweetalert2";
 import {useState} from "react";
+import {Plus, Minus} from "lucide-react";
 
 export default function HomePage() {
   const [puntosNosotros, setPuntosNosotros] = useState(0);
@@ -107,7 +108,7 @@ export default function HomePage() {
             type="button"
             onClick={() => setPuntos("Nosotros", Math.min(puntosNosotros + 1, PuntosMaximos))}
           >
-            +
+            <Plus />
           </button>
           <div className="text-lg md:text-xl">{puntosNosotros}</div>
           <button
@@ -115,7 +116,7 @@ export default function HomePage() {
             type="button"
             onClick={() => setPuntosNosotros(Math.max(puntosNosotros - 1, 0))}
           >
-            -
+            <Minus />
           </button>
         </div>
       </div>
@@ -138,7 +139,7 @@ export default function HomePage() {
             type="button"
             onClick={() => setPuntos("Ellos", Math.min(puntosEllos + 1, PuntosMaximos))}
           >
-            +
+            <Plus />
           </button>
           <div className="text-lg md:text-xl">{puntosEllos}</div>
           <button
@@ -146,7 +147,7 @@ export default function HomePage() {
             type="button"
             onClick={() => setPuntosEllos(Math.max(puntosEllos - 1, 0))}
           >
-            -
+            <Minus />
           </button>
         </div>
       </div>
